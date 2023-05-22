@@ -35,7 +35,7 @@
   
   .song-controls ion-button {
     --ion-icon-size: 36px;
-    margin: 0 8px;
+ 
   }
   
   .song-controls ion-button:first-child {
@@ -45,4 +45,20 @@
   .song-controls ion-button:last-child {
     margin-right: 0;
   }
+  .song-image {
+    width: 300px; /* Ajusta el ancho deseado del contenedor */
+    height: 300px; /* Ajusta la altura deseada del contenedor */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   
+  .song-image img {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0;
+  }
+ body{
+    background-color: black;
+ }

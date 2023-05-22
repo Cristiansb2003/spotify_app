@@ -8,7 +8,7 @@
 
 <ion-content>
   <div class="playlist-header">
-    <img src={{images.url}} alt="Portada de la lista de reproducción">
+    <img src={{images.url}} alt="Portada de la lista de reproducción" >
     <div class="playlist-details">
       <h1>{{nombrePl}}</h1>
       <p>{{descripcion}}</p>
@@ -17,7 +17,7 @@
 
   <ion-list>
     <ion-list>
-      <ion-item *ngFor="let track of infoTrack" class="playlist-item" [routerLink]="['/cancion', track.id]">
+      <ion-item *ngFor="let track of infoTrack" class="playlist-item"(click)="enviarDato(track.id)" [routerLink]="['/cancion', track.id]">
         <ion-thumbnail slot="start">
           <ion-img src={{track.album.images[0].url}}></ion-img>
         </ion-thumbnail>

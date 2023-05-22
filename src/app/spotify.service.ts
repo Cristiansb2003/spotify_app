@@ -3,7 +3,7 @@ import { DataToken } from './interfaces/data-token';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Playlists } from './interfaces/playlists';
 import { OnePlaylist } from './interfaces/one-playlist';
 import { OneTrack } from './interfaces/one-track';
@@ -121,6 +121,14 @@ export class SpotifyService {
     });
 
     return this.http.get<OneTrack>(url, { headers });
+  }
+
+  // pasar datos
+  private datoFuente = new Subject<string>();
+  datoEnviado$ = this.datoFuente.asObservable();
+
+  enviarDato(dato: string) {
+    this.datoFuente.next(dato);
   }
 }
 

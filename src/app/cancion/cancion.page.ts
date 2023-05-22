@@ -16,6 +16,7 @@ export class CancionPage implements OnInit{
   urlTrack:string = ''
   imagenTrack:string = ''
   nombre:string = ''
+  artista:string = ''
   constructor(private spotifyService: SpotifyService,private route: ActivatedRoute,private elementRef: ElementRef) {}
 
   ngOnInit(): void {
@@ -32,6 +33,8 @@ export class CancionPage implements OnInit{
           this.urlTrack = this.track[0].preview_url
           this.imagenTrack = this.track[0].album.images[0].url
           this.nombre = this.track[0].name
+          this.artista = this.track[0].artists[0].name
+          console.log(this.urlTrack)
           // Realiza las operaciones necesarias con los datos del análisis de audio
         },
         (error) => {

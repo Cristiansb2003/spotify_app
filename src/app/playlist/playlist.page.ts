@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Image, OnePlaylist, Track } from '../interfaces/one-playlist';
 import { ActivatedRoute } from '@angular/router';
 import { SpotifyService } from '../spotify.service';
@@ -18,6 +18,10 @@ export class PlaylistPage implements OnInit {
     url: '',
     width: 0
   }
+
+  enviarDato(id: string) {
+    this.spotifyService.enviarDato(id);
+  }
   nombrePl:string = ''
   descripcion:string = ''
   constructor(private route: ActivatedRoute, private spotifyService: SpotifyService) {}
@@ -34,6 +38,8 @@ export class PlaylistPage implements OnInit {
         this.nombrePl = response.name;
         this.descripcion = response.description
         this.tracks = response.tracks.items;
+        this.tracks = this.tracks.filter(p=>p.track.preview_url!=null)
+        
         this.infoTrack = this.tracks.map((playlist: TrackOne) => playlist.track);
 
         console.log(this.infoTrack)

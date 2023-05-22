@@ -24,3 +24,184 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+/* You can add global styles to this file, and also import other style files */
+/*Estilos globales ayudan a cambiar variables de ionic y definir tus propias globales
+Utiliza este archivo para implementar estilos que se van a repetir a lo largo de tu aplicación
+y no encapsularlos por componente*/
+:root {
+    
+    /*Variables */
+    --verde: #1ED760;
+    --bg-color: #121212;
+    --gris-oscuro: #777777;
+    --gris-claro: #B3B3B3;
+    --blanco: #fff;
+    --negro: #000;
+
+    /*Variables de Ionic*/
+    --ion-background-s: var(--bg-color);
+    --ion-color-primary: var(--blanco);
+    
+}
+//--- ---COLOR DEL FONDO--- ---
+ion-content{
+    --ion-background-color: var(--negro);
+}
+
+//--- ---TARJETAS PARA LA MUSICA POR EJEMPLO--- ---
+ion-card{
+    --ion-background-color: #FFF;
+}
+
+
+//--- ---TODO ESTO ES PARA LAS ABS--- ---
+//solo modifica el color del texto y del fondo. lo demás lo hace ionic automaticamente
+ion-header ion-toolbar ion-title,
+ion-tabs, 
+ion-tab-bar, ion-tab-bar ion-tab-button {
+    background-color: var(--bg-color);  
+    color: var(--ion-color-primary);
+}
+
+
+//--- ---esto aparenteente no viene en la pagina de prueba asi q no se pero es algo de las tabs xD--- ---
+ion-tab-bar, ion-tab-bar ion-tab-button ion-icon{
+    color: var(--gris-oscuro);
+}
+
+
+//--- ---esto tampoco se para que es, no note diferencia :c--- ---
+ion-tab-button:hover ion-label,
+ion-tab-button:hover ion-icon,
+ion-tab-button:focus ion-label,
+ion-tab-button:focus ion-icon{
+    color: var(--verde);
+}
+
+
+
+//--- ---CLASE DEL BOTON 1--- ---
+ion-button.verde {
+    --background: var(--verde);
+    --background-hover: #9ce0be;
+    --background-activated: #88f4be;
+    --background-focused: #88f4be;
+    --color: #000;
+    --box-shadow: none;
+    text-transform: capitalize;
+    --border-radius: 50px;
+    height: auto;
+    --padding-top: 20px;
+    --padding-bottom: 20px;
+    font-size: 16px;
+}
+
+
+//--- ---CLASE DEL BOTON 2--- ---
+ion-button.negro {
+    --background: var(--bg-color);
+    --background-hover: #000;
+    --background-activated: #000;
+    --background-focused: #000;
+    --color: #FFF;
+    --box-shadow: none;
+    text-transform: capitalize;
+    --border-radius: 50px;
+    height: auto;
+    --padding-top: 20px;
+    --padding-bottom: 20px;
+    font-size: 16px;
+}
+
+//--- ---CLASE DEL BOTON 3--- ---
+ion-button.gris {
+    --background: var(--gris-oscuro);
+    --background-hover: var(--negro);
+    --background-activated: var(--negro);
+    --background-focused: var(--blanco);
+    --color: var(--blanco);
+    --box-shadow: none;
+    text-transform: capitalize;
+    --border-radius: 50px;
+    height: auto;
+    --padding-top: 20px;
+    --padding-bottom: 20px;
+    font-size: 16px;
+}
+
+//--- ---CLASE DEL BOTON 4--- ---
+ion-button.blanco {
+    --background: var(--blanco);
+    --background-hover: var(--blanco);
+    --background-activated: var(--blanco);
+    --background-focused: var(--blanco);
+    --color: #000;
+    --box-shadow: none;
+    text-transform: capitalize;
+    --border-radius: 50px;
+    height: auto;
+    --padding-top: 20px;
+    --padding-bottom: 20px;
+    font-size: 16px;
+}
+
+//--- ---CLASE DEL BOTON 5 transparente--- ---
+ion-button.transparente {
+    --background: transparent;
+    --background-hover: var(--negro);
+    --background-activated: var(--negro);
+    --background-focused: var(--blanco);
+    --color: var(--blanco);
+    --box-shadow: none;
+    text-transform: capitalize;
+    --border-radius: 50px;
+    height: auto;
+    --padding-top: 20px;
+    --padding-bottom: 20px;
+    font-size: 16px;
+}
+
+
+//--- ---CLASE DE LOS SUBTITULOS H1 HASTA H4 Y LISTAS--- ---
+p, h1, h2, h3, h4, ul, ul li, span{
+    color: var(--blanco)
+}
+p.verde, h1.verde, h2.verde, h3.verde, h4.verde, ul.verde, ul li.verde , span.verde{
+    color: var(--verde);
+}
+p.gris, h1.gris, h2.gris, h3.gris, h4.gris, ul.gris, ul li.gris , span.gris{
+    color: var(--gris-claro);
+}
+
+
+//--- ---ESTILOS DE LA BARRA DE BUSQUEDA--- ---
+ion-searchbar, ion-searchbar.blanco {
+    --background: var(--blanco);    //fondo blanso
+    --color: var(--negro);  //color del texto
+    --box-shadow: none; //sombra (ningina)
+}
+
+
+//--- ---FUENTE ITALICA (inclinado)--- ---
+.italico {
+    font-style:italic;
+}
+
+
+//--- ---FUENTE BOLD (en negritas)--- ---
+.negritas {
+    font-weight: 700;
+}
+
+//--- ---eso tam,poco se para que es--- ---
+ion-list ion-item {
+    --color: var(--blanco);
+}
+ion-tab-button.highlight ion-icon{
+    color: var(--blanco);
+}
+
+body{
+    background-color: #121212;
+}
