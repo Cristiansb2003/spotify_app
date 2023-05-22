@@ -20,6 +20,7 @@ body {
   align-items: flex-start;
   min-height: 100vh;
   margin: 0;
+  background: black;
 }
 
 
@@ -42,6 +43,7 @@ ion-avatar img {
   
   ion-item {
     --inner-padding-end: 10px;
+    background-color: black;
   }
   
   ion-item ion-avatar {
@@ -62,7 +64,7 @@ ion-avatar img {
     bottom: 0;
     left: 0;
     padding: 16px;
-    color: #fff;
+    color: #000;
     background-color: rgba(0, 0, 0, 0.6);
   }
   
@@ -102,4 +104,7 @@ ion-avatar img {
     font-size: 14px;
     color: #888;
   }
-  
+.p{
+
+  background-color: black;
+}

@@ -57,13 +57,12 @@ ion-card{
 
 //--- ---TODO ESTO ES PARA LAS ABS--- ---
 //solo modifica el color del texto y del fondo. lo demás lo hace ionic automaticamente
-ion-header ion-toolbar ion-title,
+ion-title,
 ion-tabs, 
 ion-tab-bar, ion-tab-bar ion-tab-button {
     background-color: var(--bg-color);  
     color: var(--ion-color-primary);
 }
-
 
 //--- ---esto aparenteente no viene en la pagina de prueba asi q no se pero es algo de las tabs xD--- ---
 ion-tab-bar, ion-tab-bar ion-tab-button ion-icon{
@@ -202,6 +201,3 @@ ion-tab-button.highlight ion-icon{
     color: var(--blanco);
 }
 
-body{
-    background-color: #121212;
-}
