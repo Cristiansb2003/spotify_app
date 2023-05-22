@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { Playlists } from './interfaces/playlists';
+import { OnePlaylist } from './interfaces/one-playlist';
+import { OneTrack } from './interfaces/one-track';
 @Injectable({
   providedIn: 'root',
 })
@@ -22,6 +24,10 @@ export class SpotifyService {
   // playlist
   private spotifyPlaylistsUrl = 'https://api.spotify.com/v1/me/playlists';
   constructor(private http: HttpClient, private router: Router) {}
+  //una playlist
+  private spotifyAPIUrl = 'https://api.spotify.com/v1/playlists/';
+  // cancion
+  private track = 'https://api.spotify.com/v1';
 
   login(): void {
     console.log('hola')
@@ -99,4 +105,22 @@ export class SpotifyService {
 
     return this.http.get<Playlists>(this.spotifyPlaylistsUrl, { headers });
   }
+  getPlaylist(playlistId: string): Observable<OnePlaylist> {
+    const url = `${this.spotifyAPIUrl}${playlistId}`;
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + this.token
+    });
+
+    return this.http.get<OnePlaylist>(url, { headers });
+  }
+  getTrack(trackId: string): Observable<OneTrack> {
+    const url = `${this.track}/tracks/${trackId}`;
+    // Asegúrate de tener un token de acceso válido en tu servicio
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + this.token
+    });
+
+    return this.http.get<OneTrack>(url, { headers });
+  }
 }
+

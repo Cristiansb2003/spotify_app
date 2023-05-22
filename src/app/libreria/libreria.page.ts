@@ -1,36 +1,24 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../spotify.service';
-import { Image, Playlists } from '../interfaces/playlists';
 import { PlaylistMap } from '../interfaces/playlist-map';
-import Swiper from 'swiper';
+import { Image, Playlists } from '../interfaces/playlists';
 
 @Component({
-  selector: 'app-inicio',
-  templateUrl: './inicio.page.html',
-  styleUrls: ['./inicio.page.scss'],
+  selector: 'app-libreria',
+  templateUrl: './libreria.page.html',
+  styleUrls: ['./libreria.page.scss'],
 })
-export class InicioPage implements OnInit{
+export class LibreriaPage implements OnInit {
   playlists: PlaylistMap[] = [];
   imagenesPlaylist:Image[] = []
-  img1:PlaylistMap ={
-    description : '',
-    id : '',
-    images: [],
-    name: ''
-  }
-  img2:PlaylistMap ={
-    description : '',
-    id : '',
-    images: [],
-    name: ''
-  }
+
   constructor(private spoService: SpotifyService) { }
 
   ngOnInit() {
     this.spoService.getPlaylists().subscribe(
       (response:Playlists) => {
         // Procesa la respuesta de la API
-        let resp2 = response.items.filter(p => p.images.length!=0).slice(2,4)
+        let resp2 = response.items.filter(p => p.images.length!=0)
         this.playlists = resp2.map(res => {
           return {
             id: res.id,
@@ -40,19 +28,12 @@ export class InicioPage implements OnInit{
           };
         });
         this.playlists.filter(p => p.images.length!= 0)
-        this.img1 = this.playlists[0]
-        this.img2 = this.playlists[1]
         console.log(this.playlists)
       },
       (error) => {
         // Maneja el error de la API
         console.error(error);
-      }
-
-
-
-    );
+      })
   }
-
 
 }

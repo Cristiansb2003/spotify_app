@@ -1,0 +1,48 @@
+.song-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+  }
+  
+  .song-image img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .song-details {
+    text-align: center;
+    margin-top: 16px;
+  }
+  
+  .song-details h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+  
+  .song-details p {
+    font-size: 18px;
+    color: #888;
+  }
+  
+  .song-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+  }
+  
+  .song-controls ion-button {
+    --ion-icon-size: 36px;
+    margin: 0 8px;
+  }
+  
+  .song-controls ion-button:first-child {
+    margin-left: 0;
+  }
+  
+  .song-controls ion-button:last-child {
+    margin-right: 0;
+  }
+  

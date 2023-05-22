@@ -19,6 +19,22 @@ const routes: Routes = [
     path: 'inicio',
     loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
   },
+  {
+    path: 'libreria',
+    loadChildren: () => import('./libreria/libreria.module').then( m => m.LibreriaPageModule)
+  },
+  {
+    path: 'buscador',
+    loadChildren: () => import('./buscador/buscador.module').then( m => m.BuscadorPageModule)
+  },
+  {
+    path: 'playlist/:id',
+    loadChildren: () => import('./playlist/playlist.module').then( m => m.PlaylistPageModule)
+  },
+  {
+    path: 'cancion/:id',
+    loadChildren: () => import('./cancion/cancion.module').then( m => m.CancionPageModule)
+  },
 ];
 
 @NgModule({

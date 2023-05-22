@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Reproducción
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="song-container">
+    <div class="song-image">
+      <img src={{imagenTrack}} alt="Imagen de la canción">
+    </div>
+    <div class="song-details">
+      <h1>{{nombre}}</h1>
+      <p>Artista</p>
+      <audio #audioPlayer [src]="urlTrack" (loadedmetadata)="onAudioLoaded($event)" controls></audio>
+    </div>
+  </div>
+</ion-content>

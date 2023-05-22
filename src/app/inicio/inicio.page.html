@@ -1,37 +1,18 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Spotify
+      Escuchado Recientemente
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-searchbar></ion-searchbar>
-
-  <ion-list>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <img src="playlist-cover.jpg" alt="Playlist cover">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Playlist Name</h2>
-        <p>Curated by Artist Name</p>
-      </ion-label>
-    </ion-item>
-
-    <!-- More playlist items here -->
-
-  </ion-list>
+<ion-content class="ion-padding">
+  <div class="cards-container">
+    <ion-card>
+      <ion-img class="image" src={{img1.images[0]}} [routerLink]="['/playlist', img1.id]"></ion-img>
+    </ion-card>
+    <ion-card>
+      <ion-img class="image" src={{img2.images[0]}} [routerLink]="['/playlist', img2.id]"></ion-img>
+    </ion-card>
+  </div>
 </ion-content>
-
-<ion-footer>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-icon name="home"></ion-icon>
-    </ion-buttons>
-    <ion-buttons slot="end">
-      <ion-icon name="search"></ion-icon>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-footer>

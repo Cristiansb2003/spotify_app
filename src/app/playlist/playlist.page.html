@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Lista de Reproducción
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="playlist-header">
+    <img src={{images.url}} alt="Portada de la lista de reproducción">
+    <div class="playlist-details">
+      <h1>{{nombrePl}}</h1>
+      <p>{{descripcion}}</p>
+    </div>
+  </div>
+
+  <ion-list>
+    <ion-list>
+      <ion-item *ngFor="let track of infoTrack" class="playlist-item" [routerLink]="['/cancion', track.id]">
+        <ion-thumbnail slot="start">
+          <ion-img src={{track.album.images[0].url}}></ion-img>
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{track.name}}</h2>
+          <p>{{track.artists[0].name}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    
+    
+    <!-- Agrega más elementos de lista aquí -->
+  </ion-list>
+</ion-content>
