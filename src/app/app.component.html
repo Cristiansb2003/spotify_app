@@ -4,14 +4,15 @@
   <ion-tabs *ngIf="show">
     <div class="custom-tab-bar">
       <!-- Nuevo tab -->
-      <ion-tab-button tab="reproductor">
+      <ion-tab-button >
         <!-- <ion-icon ></ion-icon> -->
+        
         <audio #audioPlayer [src]="url" (loadedmetadata)="onAudioLoaded($event)" controls></audio>
       </ion-tab-button>
     </div>
     <ion-tab-bar slot="bottom">
       <ion-tab-button routerLink="inicio">
-        <ion-icon name="play-circle"></ion-icon>
+        <ion-icon name="home-outline"></ion-icon>
         Inicio
       </ion-tab-button>
       <ion-tab-button routerLink="buscador">
