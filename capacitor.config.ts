@@ -5,7 +5,7 @@ const config: CapacitorConfig = {
   appName: 'spotifyApp',
   webDir: 'www',
   server: {
-    androidScheme: 'https'
+    androidScheme: 'http://localhost:8100'
   }
 };
 

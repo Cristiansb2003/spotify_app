@@ -1,29 +1,34 @@
-import { Injectable } from '@angular/core';
-import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
-import { Directory, Filesystem } from '@capacitor/filesystem';
-import { Platform } from '@ionic/angular';
-import { UserPhoto } from './interfaces/user-photo';
-import { Capacitor } from '@capacitor/core';
-
+import { Injectable } from "@angular/core";
+import {
+  Camera,
+  CameraResultType,
+  CameraSource,
+  Photo,
+} from "@capacitor/camera";
+import { Filesystem, Directory } from "@capacitor/filesystem";
+import { Preferences } from "@capacitor/preferences";
+import { Platform } from "@ionic/angular";
+import { Capacitor } from "@capacitor/core";
+import { UserPhoto } from "./interfaces/user-photo";
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class FotoService {
-
   constructor(private platform: Platform) {}
   public fotos: UserPhoto[] = [];
   private PHOTO_STORAGE: string = "photos";
 
-  public async addNewToGallery() {
+  public async addNewToGallery():Promise<UserPhoto> {
+    await this.platform.ready();
     // Toma Foto
     const capturedPhoto = await Camera.getPhoto({
       resultType: CameraResultType.Uri,
       source: CameraSource.Camera,
       quality: 100,
     });
-    const savedImageFile = await this.savePicture(capturedPhoto);
-    console.log(savedImageFile)
-    this.fotos.unshift(savedImageFile);
+    return await this.savePicture(capturedPhoto);
+    // console.log(savedImageFile)
+    // this.fotos.unshift(savedImageFile);
   }
 
   private async savePicture(photo: Photo) {
@@ -67,12 +72,12 @@ export class FotoService {
   }
 
   private convertBlobToBase64 = (blob: Blob) =>
-  new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onerror = reject;
-    reader.onload = () => {
-      resolve(reader.result);
-    };
-    reader.readAsDataURL(blob);
-  });
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onerror = reject;
+      reader.onload = () => {
+        resolve(reader.result);
+      };
+      reader.readAsDataURL(blob);
+    });
 }

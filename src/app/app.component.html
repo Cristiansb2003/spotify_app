@@ -3,9 +3,7 @@
   
   <ion-tabs *ngIf="show">
     <div class="custom-tab-bar">
-      <!-- Nuevo tab -->
       <ion-tab-button >
-        <!-- <ion-icon ></ion-icon> -->
         
         <audio #audioPlayer [src]="url" (loadedmetadata)="onAudioLoaded($event)" controls></audio>
       </ion-tab-button>

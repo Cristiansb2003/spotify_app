@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from './spotify.service';
+import { FotoService } from './foto.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,9 @@ export class AppComponent implements OnInit {
   datoRecibido: string = '';
   url: string ='';
   show:boolean = false;
-  constructor(private spo: SpotifyService) {}
+  constructor(private spo: SpotifyService) {
+  }
+
 
   ngOnInit(): void {
     if(localStorage.getItem('sesion') === 'true'){

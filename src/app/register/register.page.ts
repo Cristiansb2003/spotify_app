@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../interfaces/user';
+import { User, User2 } from '../interfaces/user';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { MenuServiceService } from '../menu-service.service';
@@ -14,6 +14,7 @@ import { ModalErrorComponent } from '../modal-error/modal-error.component';
 })
 export class RegisterPage implements OnInit {
   user: User = new User();
+  user2: User2 = new User2();
   formRegister : any;
 
   constructor(
@@ -32,8 +33,9 @@ export class RegisterPage implements OnInit {
   async onRegister(){
     this.autSvc.onRegister(this.user).then(user=>{
       if(user){
-        console.log('Successfully created user!');
-        this.menuService.setTitle("presupuesto");
+        this.autSvc.altaVendedor(this.user2).then((data)=>{
+          console.log(data)
+        })
         localStorage.setItem('sesion', 'true')
         this.router.navigate(['/']);
       }
@@ -54,6 +56,8 @@ export class RegisterPage implements OnInit {
     if(this.formRegister.valid){
       this.user.email = this.formRegister.get('email').value;
       this.user.password = this.formRegister.get('password').value;
+      this.user2.nombre = this.formRegister.get('nombre').value;
+      this.user2.email = this.formRegister.get('email').value;
       this.onRegister();
     }
   }
@@ -71,7 +75,8 @@ export class RegisterPage implements OnInit {
   buildForm(){
     this.formRegister = this.formBuilder.group({
       email: new FormControl('',{validators: [Validators.email,Validators.required]}),
-      password: new FormControl('', {validators: [Validators.required, Validators.minLength(6), Validators.maxLength(6)]})
+      password: new FormControl('', {validators: [Validators.required, Validators.minLength(6), Validators.maxLength(6)]}),
+      nombre : new FormControl('', {validators:[Validators.required]})
     });
   }
 

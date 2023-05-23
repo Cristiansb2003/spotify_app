@@ -65,4 +65,9 @@ export class AuthService {
   onRegister(user: User): Promise<any> {
     return createUserWithEmailAndPassword(this.auth, user.email, user.password);
   }
+
+  async altaVendedor(vendedor: any) {
+    const docRef = await addDoc(collection(this.db, 'vendedor'), vendedor);
+    console.log('Documento escrito con id: ' + docRef.id);
+  }
 }
