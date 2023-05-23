@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -17,11 +18,13 @@ const routes: Routes = [
   },
   {
     path: 'inicio',
-    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
+    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'libreria',
-    loadChildren: () => import('./libreria/libreria.module').then( m => m.LibreriaPageModule)
+    loadChildren: () => import('./libreria/libreria.module').then( m => m.LibreriaPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'buscador',
@@ -34,6 +37,18 @@ const routes: Routes = [
   {
     path: 'cancion/:id',
     loadChildren: () => import('./cancion/cancion.module').then( m => m.CancionPageModule)
+  },
+  {
+    path: 'inicio-sesion',
+    loadChildren: () => import('./inicio-sesion/inicio-sesion.module').then( m => m.InicioSesionPageModule)
+  },
+  {
+    path: 'bienvenida',
+    loadChildren: () => import('./bienvenida/bienvenida.module').then( m => m.BienvenidaPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
 ];
 

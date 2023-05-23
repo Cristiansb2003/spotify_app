@@ -4,10 +4,19 @@
 
 export const environment = {
   production: false,
-  spotify : {
-    CLIENT_ID : "777f06c4c34a4cddade29165cc7c6ecc",
-    CLIENT_SECRET: "3e0980c6149f4775aef31e5d40dcb0f9"
-  }
+  spotify: {
+    CLIENT_ID: '777f06c4c34a4cddade29165cc7c6ecc',
+    CLIENT_SECRET: '3e0980c6149f4775aef31e5d40dcb0f9',
+  },
+  firebaseConfig: {
+    apiKey: 'AIzaSyCwDi5i9u81aR8bSuCB-fXP19QBNqWuoOk',
+    authDomain: 'spotify-app-cebea.firebaseapp.com',
+    projectId: 'spotify-app-cebea',
+    storageBucket: 'spotify-app-cebea.appspot.com',
+    messagingSenderId: '840951958376',
+    appId: '1:840951958376:web:312aa7db743a0439cee4dd',
+    measurementId: 'G-X22WPX93TW',
+  },
 };
 
 /*

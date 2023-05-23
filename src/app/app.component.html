@@ -1,7 +1,7 @@
 <ion-app>
   <ion-router-outlet ></ion-router-outlet>
   
-  <ion-tabs>
+  <ion-tabs *ngIf="show">
     <div class="custom-tab-bar">
       <!-- Nuevo tab -->
       <ion-tab-button tab="reproductor">
@@ -10,15 +10,15 @@
       </ion-tab-button>
     </div>
     <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="inicio">
+      <ion-tab-button routerLink="inicio">
         <ion-icon name="play-circle"></ion-icon>
         Inicio
       </ion-tab-button>
-      <ion-tab-button tab="buscador">
+      <ion-tab-button routerLink="buscador">
         <ion-icon name="search"></ion-icon>
         Search
       </ion-tab-button>
-      <ion-tab-button tab="libreria">
+      <ion-tab-button routerLink="libreria">
         <ion-icon name="library"></ion-icon>
         Library
       </ion-tab-button>

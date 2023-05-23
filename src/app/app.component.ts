@@ -9,9 +9,13 @@ import { SpotifyService } from './spotify.service';
 export class AppComponent implements OnInit {
   datoRecibido: string = '';
   url: string ='';
+  show:boolean = false;
   constructor(private spo: SpotifyService) {}
 
   ngOnInit(): void {
+    if(localStorage.getItem('sesion') === 'true'){
+      this.show = true
+    }
     this.spo.datoEnviado$.subscribe((dato: string) => {
       this.datoRecibido = dato;
       this.spo.getTrack(dato).subscribe((data)=>{
@@ -25,4 +29,5 @@ export class AppComponent implements OnInit {
     const audioPlayer = event.target as HTMLAudioElement;
     audioPlayer.play();
   }
+
 }
