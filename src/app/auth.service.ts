@@ -66,8 +66,15 @@ export class AuthService {
     return createUserWithEmailAndPassword(this.auth, user.email, user.password);
   }
 
-  async altaVendedor(vendedor: any) {
-    const docRef = await addDoc(collection(this.db, 'vendedor'), vendedor);
-    console.log('Documento escrito con id: ' + docRef.id);
+  async altaVendedor(usuario: any) {
+    const db = getFirestore(initializeApp(environment.firebaseConfig));
+    if(usuario.id ==null){
+      usuario.id = 'idsdf'
+    }
+    await setDoc(doc(db, 'usuario',usuario.id),{
+        nombre: usuario.nombre,
+        email: usuario.email
+        
+    });
   }
 }

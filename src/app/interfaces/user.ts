@@ -6,4 +6,5 @@ export class User {
 export class User2{
     email: string = '';
     nombre: string = '';
+    id:string = '';
 }

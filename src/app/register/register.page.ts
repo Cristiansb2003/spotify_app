@@ -32,13 +32,12 @@ export class RegisterPage implements OnInit {
 
   async onRegister(){
     this.autSvc.onRegister(this.user).then(user=>{
-      if(user){
-        this.autSvc.altaVendedor(this.user2).then((data)=>{
-          console.log(data)
-        })
+      
+      this.user2.id = user.user.uid;
+      this.autSvc.altaVendedor(this.user2).then((data)=> console.log(data))
         localStorage.setItem('sesion', 'true')
         this.router.navigate(['/']);
-      }
+      
     }).catch(error=>{
       if(error.code =='auth/email-already-in-use'){
         this.openModal(error);
