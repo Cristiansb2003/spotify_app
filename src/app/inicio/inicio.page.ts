@@ -2,7 +2,6 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import { SpotifyService } from '../spotify.service';
 import { Image, Playlists } from '../interfaces/playlists';
 import { PlaylistMap } from '../interfaces/playlist-map';
-import Swiper from 'swiper';
 
 @Component({
   selector: 'app-inicio',
@@ -29,14 +28,16 @@ export class InicioPage implements OnInit{
   ngOnInit() {
     this.spoService.getPlaylists().subscribe(
       (response:Playlists) => {
-        // Procesa la respuesta de la API
-        let resp2 = response.items.filter(p => p.images.length!=0).slice(2,4)
-        this.playlists = resp2.map(res => {
+        // // Procesa la respuesta de la API
+        // let resp2 = response.items.filter(p => p.images.length!=0).slice(2,4)
+
+        response.items = response.items.filter(p => p.images && p.images.length > 0);
+        this.playlists = response.items.map(res => {
           return {
             id: res.id,
             name: res.name,
             description: res.description,
-            images: res.images.map(image => image.url)
+            images: res.images
           };
         });
         this.playlists.filter(p => p.images.length!= 0)

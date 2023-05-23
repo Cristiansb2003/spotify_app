@@ -24,7 +24,7 @@ export class LibreriaPage implements OnInit {
             id: res.id,
             name: res.name,
             description: res.description,
-            images: res.images.map(image => image.url)
+            images: res.images
           };
         });
         this.playlists.filter(p => p.images.length!= 0)

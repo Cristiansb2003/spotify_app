@@ -1,27 +1,28 @@
-.ion-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+ion-toolbar{
+  background-color: #000 !important;
 }
 
-.cards-container {
+
+.grid-item{
   display: flex;
-  justify-content: center;
+flex-wrap: nowrap;
+overflow-x: auto;
+scrollbar-color: transparent transparent;
 }
-.hea{
-   background-color: black !important   ;
-}
-ion-card {
-  margin: 10px;
-  width: 200px; /* Ajusta el ancho según tus necesidades */
-  height: 200px; /* Ajusta la altura según tus necesidades */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.grid-item::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
 }
 
-.image {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+.grid-item::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+ion-card{
+flex: 0 0 auto;
+margin-right: 15px;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: transparent;
 }
