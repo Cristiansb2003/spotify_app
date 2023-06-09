@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from './spotify.service';
-import { FotoService } from './foto.service';
 
 @Component({
   selector: 'app-root',

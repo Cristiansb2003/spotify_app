@@ -5,7 +5,8 @@ import { AuthGuard } from './auth.guard';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: '',
@@ -14,7 +15,8 @@ const routes: Routes = [
   },
   {
     path: 'callback',
-    loadChildren: () => import('./callback/callback.module').then( m => m.CallbackPageModule)
+    loadChildren: () => import('./callback/callback.module').then( m => m.CallbackPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'inicio',
@@ -28,15 +30,18 @@ const routes: Routes = [
   },
   {
     path: 'buscador',
-    loadChildren: () => import('./buscador/buscador.module').then( m => m.BuscadorPageModule)
+    loadChildren: () => import('./buscador/buscador.module').then( m => m.BuscadorPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'playlist/:id',
-    loadChildren: () => import('./playlist/playlist.module').then( m => m.PlaylistPageModule)
+    loadChildren: () => import('./playlist/playlist.module').then( m => m.PlaylistPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'cancion/:id',
-    loadChildren: () => import('./cancion/cancion.module').then( m => m.CancionPageModule)
+    loadChildren: () => import('./cancion/cancion.module').then( m => m.CancionPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'inicio-sesion',
@@ -52,7 +57,8 @@ const routes: Routes = [
   },
   {
     path: 'usuario',
-    loadChildren: () => import('./usuario/usuario.module').then( m => m.UsuarioPageModule)
+    loadChildren: () => import('./usuario/usuario.module').then( m => m.UsuarioPageModule),
+    canActivate:[AuthGuard]
   },
 ];
 

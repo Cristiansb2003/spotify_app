@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   spotify: {
-    CLIENT_ID: '777f06c4c34a4cddade29165cc7c6ecc',
-    CLIENT_SECRET: '3e0980c6149f4775aef31e5d40dcb0f9',
+    CLIENT_ID: '449ddf99142249d1ba9c1de3bd71db6c',
+    CLIENT_SECRET: '65a72110af5a45c1a8e02e1dbbd1d7da',
   },
   firebaseConfig: {
     apiKey: 'AIzaSyCwDi5i9u81aR8bSuCB-fXP19QBNqWuoOk',

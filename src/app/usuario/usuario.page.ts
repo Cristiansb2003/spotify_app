@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
-import { FotoService } from '../foto.service';
 import { PhotoData } from '../interfaces/photo-data';
 import { UserPhoto } from '../interfaces/user-photo';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
@@ -16,19 +15,15 @@ export class UsuarioPage implements OnInit {
     filepath : '',
     webviewPath: './../../assets/user.jpeg'
   }
-  constructor(private foto: FotoService, private router:Router) {}
-  fotoS = this.foto.fotos
-  takePhoto() {
-    this.foto.addNewToGallery().then((data)=>{
-      this.datos = data
-    })
-  }
+  constructor(private router:Router) {}
+
+
 
   ngOnInit(): void {
       
   }
   cerrarSesion(){
-    localStorage.removeItem('idUser')
+    localStorage.removeItem('sesion')
     this.router.navigate(['/inicio-sesion']);
   }
 }
