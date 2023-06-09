@@ -4,18 +4,16 @@
 
 export const environment = {
   production: false,
+  //Aqui agrega las credenciales que te da spotify al crear un proyecto
+  //con el
   spotify: {
-    CLIENT_ID: '449ddf99142249d1ba9c1de3bd71db6c',
-    CLIENT_SECRET: '65a72110af5a45c1a8e02e1dbbd1d7da',
+    CLIENT_ID: '',
+    CLIENT_SECRET: '',
   },
+  //Aqui van las credenciales de firebase
+  //para hacer uso de una base de datos no relacional
   firebaseConfig: {
-    apiKey: 'AIzaSyCwDi5i9u81aR8bSuCB-fXP19QBNqWuoOk',
-    authDomain: 'spotify-app-cebea.firebaseapp.com',
-    projectId: 'spotify-app-cebea',
-    storageBucket: 'spotify-app-cebea.appspot.com',
-    messagingSenderId: '840951958376',
-    appId: '1:840951958376:web:312aa7db743a0439cee4dd',
-    measurementId: 'G-X22WPX93TW',
+
   },
 };
 
